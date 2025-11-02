@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Komunitas Teknologi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* BASE STYLES */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        form {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* HEADER DAN LOGO */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-container img {
+            width: 60px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #007bff;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        /* FIELDSET & LEGEND */
+        fieldset {
+            border: 1px solid #dcdcdc;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+        legend {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #007bff; 
+            padding: 0 10px;
+            background-color: white;
+            margin-left: -5px;
+        }
+        
+        /* FORM GROUP DAN INPUT */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input:not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; 
+            transition: border-color 0.3s;
+        }
+        /* Efek Fokus */
+        .form-group input:focus:not([type="radio"]):not([type="checkbox"]):not([type="file"]) {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+        
+        /* RADIO & CHECKBOX */
+        .radio-group {
+            display: flex; /* Tambahan untuk radio button */
+        }
+        .radio-group label, .checkbox-group label {
+            margin-right: 30px;
+            font-weight: 400;
+        }
+
+        /* PERUBAHAN UTAMA: CHECKBOX KE SAMPING */
+        .checkbox-group {
+            display: flex; 
+            gap: 20px; /* Jarak antar pilihan */
+        }
+        
+        /* BUTTONS */
+        .button-group {
+            text-align: right;
+            margin-top: 30px;
+        }
+        .button-group button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 15px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .button-group button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+        }
+        .button-group button[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+        
+        .button-group button[type="reset"] {
+            background-color: #6c757d;
+            color: white;
+        }
+        .button-group button[type="reset"]:hover {
+            background-color: #5a6268;
+            transform: translateY(-1px);
+        }
+
+        /* Perbaikan untuk input file agar tidak terlalu lebar */
+        .form-group input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <form action="submit.html" method="post" enctype="multipart/form-data">
+        
+        <div class="header-container">
+            <img src="logo_unib.png" alt="Logo Universitas Bengkulu">
+            <h1>Formulir Pendaftaran Komunitas Teknologi</h1>
+        </div>
+
+        <fieldset>
+            <legend>Informasi Akun dan Kontak</legend>
+
+            <div class="form-group">
+                <label for="nama_lengkap">Nama Lengkap</label>
+                <input type="text" id="nama_lengkap" name="nama_lengkap" 
+                       placeholder="Masukkan Nama Lengkap Anda" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <input type="email" id="email" name="email" 
+                       placeholder="contoh@domain.com" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" name="password" 
+                       placeholder="Minimal 8 karakter" 
+                       minlength="8" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telepon">Nomor Telepon</label>
+                <input type="tel" id="telepon" name="telepon" 
+                       placeholder="Contoh: 081234567890" 
+                       pattern="[0-9]{10,14}" 
+                       title="Nomor telepon harus antara 10 sampai 14 digit angka" 
+                       required autocomplete="tel">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Data Pribadi</legend>
+
+            <div class="form-group">
+                <label for="usia">Usia</label>
+                <input type="number" id="usia" name="usia" 
+                       placeholder="Minimal 17 tahun" 
+                       min="17" max="99" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tanggal_lahir">Tanggal Lahir</label>
+                <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio-group">
+                    <input type="radio" id="laki_laki" name="jenis_kelamin" value="Laki-laki" required>
+                    <label for="laki_laki">Laki-laki</label>
+                    <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
+                    <label for="perempuan">Perempuan</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Minat (Pilih minimal 1)</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ai" name="minat[]" value="AI">
+                    <label for="ai">AI</label>
+                    
+                    <input type="checkbox" id="web" name="minat[]" value="Web">
+                    <label for="web">Web</label>
+
+                    <input type="checkbox" id="iot" name="minat[]" value="IoT">
+                    <label for="iot">IoT</label>
+
+                    <input type="checkbox" id="game" name="minat[]" value="Game">
+                    <label for="game">Game</label>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Portofolio dan Dokumen</legend>
+
+            <div class="form-group">
+                <label for="portofolio">Link Portofolio (Opsional)</label>
+                <input type="url" id="portofolio" name="portofolio" 
+                       placeholder="https://www.linkedin.com/in/namaanda" autocomplete="url">
+            </div>
+
+            <div class="form-group">
+                <label for="foto_profil">Upload Foto Profil (Max 1MB)</label>
+                <input type="file" id="foto_profil" name="foto_profil" 
+                       accept="image/*" required>
+            </div>
+
+        </fieldset>
+
+        <div class="button-group">
+            <button type="reset">Reset Formulir</button>
+            <button type="submit">Submit Pendaftaran</button>
+        </div>
+    </form>
+    
+</body>
+</html>
